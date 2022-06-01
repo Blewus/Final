@@ -1,0 +1,77 @@
+<div class="container">
+
+<p>&nbsp;</p>
+<h1>Ürünler</h1>
+
+
+<button mat-fab matTooltip="Ürün Ekle"  (click)="Ekle()">
+  <mat-icon aria-label="label">add</mat-icon>
+</button>
+
+
+  <mat-table [dataSource]="dataSource" matSort>
+<ng-container matColumnDef="urunId">
+<mat-header-cell *matHeaderCellDef mat-sort-header> Ürün Id
+</mat-header-cell>
+<mat-cell *matCellDef="let kayit"> {{kayit.urunId}} </mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="urunKatAdi">
+  <mat-header-cell *matHeaderCellDef mat-sort-header> Ürün Kategorisi
+  </mat-header-cell>
+  <mat-cell *matCellDef="let kayit"> {{kayit.urunKatAdi}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="urunKatId">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Ürün Kategorisi
+    </mat-header-cell>
+    <mat-cell *matCellDef="let kayit"> {{kayit.urunKatId}} </mat-cell>
+    </ng-container>
+
+  <ng-container matColumnDef="urunAdi">
+  <mat-header-cell *matHeaderCellDef mat-sort-header> Ürün Adı
+  </mat-header-cell>
+  <mat-cell *matCellDef="let kayit"> {{kayit.urunAdi}} </mat-cell>
+  </ng-container>
+
+
+
+
+    <ng-container matColumnDef="urunFiyat" >
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Ürün Fiyatı
+    </mat-header-cell>
+    <mat-cell *matCellDef="let kayit"> {{kayit.urunFiyat}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="islemler">
+      <mat-header-cell *matHeaderCellDef> İşlemler
+      </mat-header-cell>
+      <mat-cell *matCellDef="let kayit">
+
+
+      <button mat-icon-button >
+        <mat-icon aria-label="label" color="primary"  matTooltip="Ürün Düzenle" (click)="Duzenle(kayit)" >edit</mat-icon>
+      </button>
+
+      <button mat-icon-button >
+        <mat-icon aria-label="label" color="warn" matTooltip="Ürün Sil" (click)="Sil(kayit)" >delete</mat-icon>
+      </button>
+
+
+
+
+      </mat-cell>
+      </ng-container>
+
+
+
+
+
+
+<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[2,5,10,25]" showFirstLastButtons>
+  </mat-paginator>
+</div>
